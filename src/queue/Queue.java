@@ -16,12 +16,6 @@ public class Queue<T> {
 		this.size++;
 	}
 
-	public Queue(Node<T> first) {
-		this.first = first;
-		this.last = first;
-		this.size++;
-	}
-
 	public void enqueue(T element) {
 		Node<T> node = new Node<T>(element);
 		if (this.isEmpty()) {

@@ -1,10 +1,8 @@
 package queue;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
-
-import junit.framework.Assert;
 
 class QueueTest {
 
@@ -12,32 +10,49 @@ class QueueTest {
 	void testQueue() {
 		Queue<Integer> q = new Queue<Integer>();
 		assertTrue(q.isEmpty());
-		fail("Not yet implemented");
 	}
 
 	@Test
 	void testQueueT() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testQueueNodeOfT() {
-		fail("Not yet implemented");
+		Queue<Integer> q = new Queue<Integer>(1);
+		assertFalse(q.isEmpty());
 	}
 
 	@Test
 	void testEnqueue() {
-		fail("Not yet implemented");
+		Queue<Integer> q = new Queue<Integer>();
+		assertTrue(q.isEmpty());
+		q.enqueue(1);
+		assertFalse(q.isEmpty());
 	}
 
+	@Test
+	void testEnqueueWhenNotEmpty() {
+		Queue<Integer> q = new Queue<Integer>(1);
+		assertFalse(q.isEmpty());
+		q.enqueue(2);
+		assertFalse(q.isEmpty());
+	}
+	
 	@Test
 	void testDequeue() {
-		fail("Not yet implemented");
+		Queue<Integer> q = new Queue<Integer>();
+		assertTrue(q.isEmpty());
+		q.enqueue(1);
+		assertFalse(q.isEmpty());
+		int first = q.dequeue();
+		assertEquals(first, 1);
 	}
 
 	@Test
-	void testIsEmpty() {
-		fail("Not yet implemented");
+	void testFIFO() {
+		Queue<Integer> q = new Queue<Integer>(1);
+		q.enqueue(2);
+		assertFalse(q.isEmpty());
+		int first = q.dequeue();
+		assertEquals(first, 1);
+		int second = q.dequeue();
+		assertEquals(second, 2);
+		assertTrue(q.isEmpty());
 	}
-
 }
