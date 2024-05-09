@@ -28,7 +28,6 @@ public class Dedup {
 		while (!directoryQueue.isEmpty()) {
 			File directory = directoryQueue.dequeue();
 			File[] contents = directory.listFiles();
-			System.out.println(contents);
 			if (contents == null) {
 				continue;
 			}
